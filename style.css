@@ -44,10 +44,13 @@ html {
     color: #454545;
 }
 
-.header__mobile-menu{
+.header__mobile-menu-btn{
     display: none;
     padding-top: 5px;
     cursor: pointer;
+    border-radius: 6px;
+    height: 30px;
+    background-color: #fecc00;
 }
 
 .burger-bottom,
@@ -121,14 +124,10 @@ html {
 @media screen and (max-width: 500px){
     .header__mobile-menu-btn{
         display: block;
-        height: 30px;
-        background-color: #fecc00;
-        border-radius: 6px;
-        padding-top: 8px;
-        cursor: pointer;
     }
 
     #header__menu-wrapper{
+        height: 0;
         overflow: hidden;
         transition: all 1s;
     }

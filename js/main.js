@@ -5,10 +5,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // open and close mobile menu
     headerMobileMenuToggler.addEventListener('click', () => {
-        if(headerMenuWrapper.style.height == '0px'){
-            headerMenuWrapper.style.height = menuMain.scrollHeight + 'px';
-        } else {
+        if(headerMenuWrapper.dataset.open === 'true'){
+            headerMenuWrapper.dataset.open = 'false';
             headerMenuWrapper.style.height = 0;
+        } else {
+            headerMenuWrapper.dataset.open = 'true';
+            headerMenuWrapper.style.height = menuMain.scrollHeight + 'px';
         }
     })
 

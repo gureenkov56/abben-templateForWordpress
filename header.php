@@ -47,7 +47,7 @@
                 <div class="burger-bottom"></div>
             </div>
         </div>
-        <div id="header__menu-wrapper" style="height: 0px">
+        <div id="header__menu-wrapper" data-open="false">
             <?php
             wp_nav_menu( array(
                 'menu'            => 'main',              // (string) Название выводимого меню (указывается в админке при создании меню, приоритетнее
