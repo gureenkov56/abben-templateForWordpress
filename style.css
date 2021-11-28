@@ -69,7 +69,7 @@ html {
 
 .menu{
     display: flex;
-    overflow: hidden;
+    flex-wrap: wrap;
     list-style-type: none;
     padding-left: 0;
 }
@@ -140,6 +140,19 @@ html {
     .menu{
         margin: 0;
         flex-direction: column;
+    }
+
+    .burger-top{
+        transition: all 1s;
+        opacity: 1;
+    }
+
+    .burger-middle{
+        transition: all 1s;
+    }
+
+    .burger-bottom{
+        transition: all 1s;
     }
 }
 
