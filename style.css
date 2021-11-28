@@ -1,0 +1,154 @@
+/*!
+Theme Name: Abben
+Theme URI: https://gureenkov56.github.io/
+Author: Nik Gureenkov / gureenkov56
+Author URI: https://gureenkov56.github.io/
+Description: Simple minimalistic theme for your block
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: abben
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* styles */
+
+.main-wrapper{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo{
+    margin-left: 15px;
+}
+
+.header__logo > a{
+    font-size: 2.5rem;
+    text-decoration: none;
+    color: #454545;
+}
+
+.header__mobile-menu{
+    display: none;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+.burger-bottom,
+.burger-middle,
+.burger-top{
+    background-color: black;
+    height: 2px;
+    width: 20px;
+    margin: 5px auto;
+}
+
+.header__menu{
+    background-color: #fecc00;
+    border-radius: 8px;
+}
+
+.menu{
+    display: flex;
+    overflow: hidden;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.menu-item > a{
+    text-align: center;
+    display: block;
+    min-width: 120px;
+    height: 40px;
+    text-decoration: none;
+    color: #171717;
+    padding: 20px 10px 0px 10px;
+}
+
+.menu-item:first-child > a {
+    border-radius: 8px 0 0 8px !important;
+}
+
+.menu-item:last-child > a {
+    border-radius: 0 8px 8px 0 !important;
+}
+
+.menu-item > a:hover{
+    background-color: #efc100;
+}
+
+.search-field{
+    padding: 8px 10px;
+    background-color: #e8e8e8;
+    border: none;
+    border-radius: 4px;
+}
+
+.search-submit{
+    padding: 8px 10px;
+    background-color: #efc100;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px){
+    .header__search{
+        display: none;
+    }
+    .header__wrapper{
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .header__mobile-menu-btn{
+        display: block;
+        height: 30px;
+        background-color: #fecc00;
+        border-radius: 6px;
+        padding-top: 8px;
+        cursor: pointer;
+    }
+
+    #header__menu-wrapper{
+        overflow: hidden;
+        transition: all 1s;
+    }
+
+    .header__menu{
+        overflow: hidden;
+        transition: all 1s;
+    }
+
+    .menu{
+        margin: 0;
+        flex-direction: column;
+    }
+}
+
+/* style for JS animate */
+
+.show-menu{
+    height: auto;
+}
+
+
+
