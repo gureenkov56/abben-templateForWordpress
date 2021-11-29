@@ -1,32 +1,19 @@
-<?php
-/**
- * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package Abben
- */
 
-?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'abben' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'abben' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'abben' ), 'abben', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
 </div><!-- #page -->
+<footer id="colophon" class="site-footer">
+    <div class="footer__wrapper">
+        <div class="footer__site-name">
+            <?php echo get_bloginfo('name'); ?>
+        </div>
+        <div class="footer__site-description">
+            <?php echo get_bloginfo('description'); ?>
+        </div>
+        <div class="footer__theme-link">
+            Тема Abben разработана от <a href="https://gureenkov56.github.io/">gureenkov56</a>
+        </div>
+    </div>
+</footer><!-- #colophon -->
 
 <?php wp_footer(); ?>
 

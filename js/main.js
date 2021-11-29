@@ -23,5 +23,5 @@ document.addEventListener("DOMContentLoaded", function() {
             burgerBottom.style.cssText = 'margin-top: -7px; transform: rotate(-45deg);';
         }
     })
-
 });
+

@@ -15,42 +15,86 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main>
 
-		<?php
-		if ( have_posts() ) :
+    <section class="last-article">
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
+        <?php
+        $my_posts = get_posts( array(
+            'posts_per_page' => 8,
+            'orderby' => 'date',
+            'post_type' => 'post',
+        ) );
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+        foreach($my_posts as $post){
+            setup_postdata( $post );
+            ?>
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+                <div class="article-card">
+                    <a href="<?php echo get_permalink(); ?>">
+                    <div class="card__img-wrapper">
+                        <?php echo get_the_post_thumbnail() ?>
+                    </div>
+                    <h4 class="article-card__h4"><?php the_title(); ?></h4>
+                    <?php the_excerpt(); ?>
+                    </a>
+                    <div class="card__data-wrapper">
+                        <span class="card__date"><?php echo get_the_date(); ?></span>
+                    </div>
+                </div>
+<!--            </a>-->
 
-			endwhile;
+            <?
+        }
 
-			the_posts_navigation();
+        wp_reset_postdata();
+        ?>
 
-		else :
+    </section>
 
-			get_template_part( 'template-parts/content', 'none' );
+    <section class="second-index-block">
+        <div class="categories-list">
+            <?php
+            $categories = get_categories( [
+                'taxonomy' => 'category',
+                'orderby'  => 'count'
+            ] );
 
-		endif;
-		?>
+            if( $categories ) {
+                foreach ($categories as $cat) { ?>
+                    <a href="<?php echo get_category_link( $cat->term_id ); ?>" class="categories-list__link">
+                        <div class="categories-list__item">
+                            <?php echo $cat->name; ?>
+                            <div class="categories-list__item__count">
+                                <?php echo $cat->count; ?>
+                            </div>
+                        </div>
+                    </a>
+                <?php
+                }
+            }
+            ?>
+        </div>
+        <div class="tags">
+            <?php
+            $tags = get_tags();
 
-	</main><!-- #main -->
+            foreach ($tags as $tag){
+                ?>
+                <a href="<?php echo get_tag_link( $tag->term_id ); ?>" class="tags-list__link">
+                    <div class="tags__item">
+                        #<?php echo $tag->name; ?>
+                    </div>
+                </a>
+                <?php
+
+            }
+            ?>
+        </div>
+    </section>
+
+
+</main>
 
 <?php
 get_sidebar();
