@@ -9,27 +9,19 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				abben_posted_on();
-				abben_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<?php abben_post_thumbnail(); ?>
+<article>
+    <header class='header' style="background-image: url(<?php echo get_the_post_thumbnail_url() ?>);">
+        <div class="header__inner">
+            <div class="header__inner__text">
+                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                <div class="entry-meta">
+                    <?php
+                    the_date();
+                    ?>
+                </div>
+            </div>
+        </div>
+    </header>
 
 	<div class="entry-content">
 		<?php
@@ -57,7 +49,11 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php abben_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	<div class="entry-cat-and-tags">
+        <?php
+        echo the_category();
+
+        echo the_tags('<div class="post-tags" >', '', '</div>');
+        ?>
+	</div><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

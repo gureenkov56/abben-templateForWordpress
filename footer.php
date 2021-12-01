@@ -9,9 +9,6 @@
         <div class="footer__site-description">
             <?php echo get_bloginfo('description'); ?>
         </div>
-        <div class="footer__theme-link">
-            Тема Abben разработана от <a href="https://gureenkov56.github.io/">gureenkov56</a>
-        </div>
     </div>
 </footer><!-- #colophon -->
 
